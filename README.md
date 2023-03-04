@@ -5,6 +5,8 @@
 # Colorizer
 Create the perfect palette
 
+> Bring your vision to life with our color palettes!
+
 <hr/>
 
 ### Postman documentation  
