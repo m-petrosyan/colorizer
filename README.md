@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://files.catbox.moe/2wx6ve.jpg" alt="tms logo">
+  <img src="https://files.catbox.moe/jayouh.jpg" alt="tms logo">
 </div>
 
 # Colorizer
