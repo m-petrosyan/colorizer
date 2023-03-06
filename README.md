@@ -3,18 +3,21 @@
 </div>
 
 # Colorizer
+
 Create the perfect palette
 
 > Bring your vision to life with our color palettes!
 
 <hr/>
 
-### Postman documentation  
+### Postman documentation
+
 [view](https://documenter.getpostman.com/view/12599375/2s93CKQErt/)
 
 # installation
 
 > Laravel
+
 ```
 composer install
 php artisan passport:install
@@ -23,9 +26,10 @@ php artisan serve
 ```
 
 > Vue
+
 ```
-yarn install
-yarn serve
+yarn 
+yarn vite
 ```
 
 
