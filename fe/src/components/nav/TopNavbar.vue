@@ -1,17 +1,17 @@
 <template>
   <nav class="top-nav">
-    <div>
+    <router-link to="/">
       <img src="@/assets/logo.svg" height="30" alt="">
-    </div>
+    </router-link>
     <input id="menu-toggle" type="checkbox"/>
     <label class='menu-button-container' for="menu-toggle">
       <span class='menu-button'></span>
     </label>
     <ul class="menu">
-      <!--      <li>One</li>-->
-      <!--      <li>Two</li>-->
-      <!--      <li>Three</li>-->
-      <!--      <li>Four</li>-->
+      <li>One</li>
+      <li>Two</li>
+      <li>Three</li>
+      <li>Four</li>
       <li>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
              class="w-6 h-6">

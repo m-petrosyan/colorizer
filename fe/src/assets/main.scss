@@ -1,5 +1,6 @@
 @import './vars.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
 *,
 *::before,
@@ -12,7 +13,7 @@
 
 body {
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--main-font), sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +27,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    font-family: var(--main-font), sans-serif;
 
     &:disabled {
       cursor: not-allowed;
