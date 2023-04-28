@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('user', [UserController::class, 'store']);
+Route::get('google/auth', function () {
+    dd(\Laravel\Socialite\Facades\Socialite::driver('google')->user());
+});
+Route::get('google', function () {
+    dd('ok');
 });

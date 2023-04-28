@@ -106,6 +106,7 @@ export default {
     padding: 0;
 
     & > li {
+      font-weight: 600;
       margin: 0 1rem;
 
       svg {
