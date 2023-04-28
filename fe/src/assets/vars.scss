@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@400;500;600;700&display=swap');
+
 // responsive points
 $l: 1280px;
 $m: 860px;
@@ -9,4 +11,11 @@ $s: 580px;
   --navbar-color: #607d8b;
 
   --btn-hover-color: rgba(0, 0, 0, 0.11);
+  --btn-active-color: rgba(61, 61, 61, 0.11);
+
+  --main-font: Athiti;
+
+  --text-big: 24px;
+  --text-normal: 20px;
+  --text-small: 18px
 }

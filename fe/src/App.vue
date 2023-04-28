@@ -3,11 +3,11 @@
   <router-view/>
 </template>
 <script>
-import TopNavbar from "@/components/TopNavbar.vue";
+import TopNavbar from "@/components/nav/TopNavbar.vue";
 
 export default {
   mounted() {
-    console.log(this.$store.getters.getTask)
+
   },
   components: {TopNavbar}
 }
