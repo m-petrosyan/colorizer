@@ -243,6 +243,10 @@ export default {
       transform: translate(-50%, -90%);
       flex-direction: row;
 
+      @media (height <= $m) {
+        top: 100%;
+      }
+
       button {
         &:not(:disabled) {
           &:active {
@@ -303,7 +307,7 @@ export default {
     .color-actions {
       display: flex;
       flex-direction: column;
-
+      z-index: 1;
 
       @media (width <= $l) {
         flex-direction: row;
