@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Palettes extends Model
+class Palette extends Model
 {
     use HasFactory;
 
@@ -18,6 +18,6 @@ class Palettes extends Model
 
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Palettes::class, 'palette_likes', 'palette_id', 'user_id');
+        return $this->belongsToMany(Palette::class, 'palette_likes', 'user_id');
     }
 }
