@@ -40,12 +40,9 @@ class PalettesController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Palettes $palettes)
+    public function like(Palettes $palettes)
     {
-        //
+        $palettes->likes()->toggle(['user_id' => auth()->id()]);
     }
 
     /**

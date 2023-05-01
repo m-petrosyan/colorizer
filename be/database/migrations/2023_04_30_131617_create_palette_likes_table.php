@@ -10,11 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('palettes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->json('palette');
-            $table->timestamps();
+        Schema::create('palette_likes', function (Blueprint $table) {
+            $table->foreignId('palette_id');
+            $table->foreignId('user_id');
         });
     }
 
@@ -23,6 +21,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('palettes');
+        Schema::dropIfExists('palette_likes');
     }
 };
