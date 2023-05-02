@@ -35,6 +35,15 @@ class PaletteController extends Controller
         return new PaletteResource($this->paletteService->store($request->validated()));
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(Palette $palette): PaletteResource
+    {
+        return new PaletteResource($palette);
+    }
+
+
     public function like(Palette $palette)
     {
         $this->paletteService->likeToggle($palette);

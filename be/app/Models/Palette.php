@@ -29,4 +29,9 @@ class Palette extends Model
     {
         $this->attributes['palettes'] = json_encode($value);
     }
+
+    public function getPalettesAttribute($value)
+    {
+        return json_decode($value);
+    }
 }

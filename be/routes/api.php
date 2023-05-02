@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('user', [UserController::class, 'store']);
-Route::get('palette', [PaletteController::class, 'index']);
+Route::resource('palette', PaletteController::class)->only('index', 'show');
 
 Route::middleware(['auth:api', 'verified'])->group(function () {
     Route::get('auth', [UserController::class, 'auth']);
-    Route::post('palette', [PaletteController::class, 'store']);
+    Route::resource('palette', PaletteController::class)->only('store');
 });

@@ -19,13 +19,13 @@ class PaletteFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
-            'palettes' => json_encode([
+            'palettes' => [
                 $this->faker->hexColor,
                 $this->faker->hexColor,
                 $this->faker->hexColor,
                 $this->faker->hexColor,
                 $this->faker->hexColor,
-            ]),
+            ],
         ];
     }
 }
