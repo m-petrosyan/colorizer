@@ -11,6 +11,10 @@ class Palette extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'palettes',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -19,5 +23,10 @@ class Palette extends Model
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany(Palette::class, 'palette_likes', 'user_id');
+    }
+
+    public function setPalettesAttribute($value)
+    {
+        $this->attributes['palettes'] = json_encode($value);
     }
 }

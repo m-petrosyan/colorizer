@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Palette;
 
+use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,6 +15,10 @@ class PaletteResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'user' => new UserResource($this->user),
+            'palettes' => json_decode($this->palettes),
+        ];
     }
 }

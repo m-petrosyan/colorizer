@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('palettes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->json('palette');
+            $table->json('palettes');
             $table->timestamps();
         });
     }

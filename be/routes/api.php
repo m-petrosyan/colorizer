@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\PaletteController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('user', [UserController::class, 'store']);
-Route::get('google/auth', function () {
-    dd(\Laravel\Socialite\Facades\Socialite::driver('google')->user());
-});
-Route::get('google', function () {
-    dd('ok');
+Route::get('palette', [PaletteController::class, 'index']);
+
+Route::middleware(['auth:api', 'verified'])->group(function () {
+    Route::get('auth', [UserController::class, 'auth']);
+    Route::post('palette', [PaletteController::class, 'store']);
 });

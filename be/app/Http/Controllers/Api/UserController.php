@@ -4,11 +4,20 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
-use App\Models\User;
+use App\Http\Resources\User\UserResource;
+use App\Repositories\UserRepository;
+use App\Service\UserService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    protected UserService $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -20,17 +29,15 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserCreateRequest $request)
+    public function store(UserCreateRequest $request): UserResource
     {
-        User::create($request->validated() + ['google_id' => $request]);
+        return new UserResource($this->userService->store($request->validated()));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function auth(): UserResource
     {
-        //
+        return new UserResource(UserRepository::authUser());
     }
 
     /**
