@@ -10,7 +10,7 @@
             Create the perfect palette or get inspired by thousands of beautiful color schemes.
           </p>
           <div class="btn-content">
-            <router-link :to="{name:'hex'}" class="btn blue">
+            <router-link :to="{name:'generate'}" class="btn blue">
               Start the generator
             </router-link>
             <!--            <router-link :to="{name: 'explore'}" class="btn white">-->

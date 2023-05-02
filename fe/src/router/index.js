@@ -12,8 +12,8 @@ const router = createRouter({
             component: HomeView,
         },
         {
-            path: '/hex',
-            name: 'hex',
+            path: '/generate',
+            name: 'generate',
             component: HexGenerate,
         },
         {

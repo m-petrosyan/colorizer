@@ -106,14 +106,14 @@ export default {
       let hex = ''
       let hexColor
       for (let i = 0; i < columns; i++) {
-
         if (this.firstGenerate) {
           hexColor = this.hash ? '#' + this.hash[i] : this.generateColor()
           this.items.push({color: hexColor, locked: false})
         } else {
           if (!this.items[i].locked) {
-            hexColor = this.generateColor()
-            this.items[i].color = hexColor
+            hexColor = this.changeColor(this.items[i], i)
+          } else {
+            hexColor = this.items[i].color
           }
         }
         hex += hexColor.substr(1)
@@ -124,7 +124,7 @@ export default {
       return hex
     },
     generateColors() {
-      this.$router.push({name: "hex", hash: '#' + this.newColors()})
+      this.$router.push({name: "generate", hash: '#' + this.newColors()})
     },
     generateColor() {
       const hexCodes = '0123456789abcdef'
@@ -152,6 +152,7 @@ export default {
       allHesh[index] = newHex.substr(1)
       this.$router.push({hash: '#' + allHesh.join('-')})
       item.color = newHex
+      return newHex;
     },
     removeColor(index) {
       const allHesh = this.$route.hash.substr(1).split("-");

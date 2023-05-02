@@ -18,6 +18,7 @@ class PaletteResource extends JsonResource
         return [
             'id' => $this->id,
             'user' => new UserResource($this->user),
+            'title' => $this->title,
             'palettes' => $this->palettes,
         ];
     }

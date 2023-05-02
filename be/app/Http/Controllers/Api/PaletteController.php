@@ -14,6 +14,9 @@ class PaletteController extends Controller
 {
     protected PaletteService $paletteService;
 
+    /**
+     * @param  PaletteService  $paletteService
+     */
     public function __construct(PaletteService $paletteService)
     {
         $this->paletteService = $paletteService;
@@ -21,6 +24,8 @@ class PaletteController extends Controller
 
     /**
      * Display a listing of the resource.
+     *
+     * @return PaletteCollection
      */
     public function index(): PaletteCollection
     {
@@ -29,6 +34,9 @@ class PaletteController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  PaletteCreateRequest  $request
+     * @return PaletteResource
      */
     public function store(PaletteCreateRequest $request): PaletteResource
     {
@@ -37,14 +45,20 @@ class PaletteController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param  Palette  $palette
+     * @return PaletteResource
      */
     public function show(Palette $palette): PaletteResource
     {
         return new PaletteResource($palette);
     }
 
-
-    public function like(Palette $palette)
+    /**
+     * @param  Palette  $palette
+     * @return void
+     */
+    public function like(Palette $palette): void
     {
         $this->paletteService->likeToggle($palette);
     }

@@ -19,6 +19,11 @@ Route::post('user', [UserController::class, 'store']);
 Route::resource('palette', PaletteController::class)->only('index', 'show');
 
 Route::middleware(['auth:api', 'verified'])->group(function () {
-    Route::get('auth', [UserController::class, 'auth']);
+//    Route::get('auth', [UserController::class, 'auth']);
+    Route::prefix('user')->controller(UserController::class)->group(function () {
+        Route::get('/auth', 'auth');
+        Route::put('/', 'update');
+        Route::delete('/', 'destroy');
+    });
     Route::resource('palette', PaletteController::class)->only('store');
 });

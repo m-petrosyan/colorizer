@@ -2,11 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Palette;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Palette>
+ * @extends Factory<Palette>
  */
 class PaletteFactory extends Factory
 {
@@ -19,6 +20,7 @@ class PaletteFactory extends Factory
     {
         return [
             'user_id' => User::inRandomOrder()->first()->id,
+            'title' => 'Palette',
             'palettes' => [
                 $this->faker->hexColor,
                 $this->faker->hexColor,

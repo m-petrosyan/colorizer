@@ -10,7 +10,7 @@ class PaletteService
      * @param  array  $attributes
      * @return mixed
      */
-    public function store(array $attributes)
+    public function store(array $attributes): mixed
     {
         return UserRepository::authUser()->palettes()->create($attributes);
     }
