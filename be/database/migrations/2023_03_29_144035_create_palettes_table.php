@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->json('palettes');
+            $table->boolean('public')->default(true);
             $table->timestamps();
         });
     }
