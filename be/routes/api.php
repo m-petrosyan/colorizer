@@ -26,6 +26,6 @@ Route::name('user')->middleware(['auth:api', 'verified'])->group(function () {
         Route::delete('/', 'destroy');
     });
 
-    Route::resource('palette', PaletteController::class)->only('store');
+    Route::resource('palette', PaletteController::class)->only('store', 'destroy');
     Route::patch('palette/{palette}/like', [PaletteController::class, 'like']);
 });

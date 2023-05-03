@@ -3,6 +3,9 @@
 namespace App\Service;
 
 use App\Repositories\UserRepository;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Gate;
 
 class PaletteService
 {
@@ -22,5 +25,22 @@ class PaletteService
     public function likeToggle(object $palette): void
     {
         $palette->likes()->toggle(UserRepository::authUserId());
+    }
+
+    /**
+     * @param  object  $palette
+     * @return JsonResponse|Response
+     */
+    public function destroy(object $palette): Response|JsonResponse
+    {
+        try {
+            Gate::allows('delete-palette', $palette);
+        
+            $palette->delete();
+
+            return response()->noContent();
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'permission denied.'], 403);
+        }
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Resources\Palette\PaletteCollection;
 use App\Http\Resources\Palette\PaletteResource;
 use App\Models\Palette;
 use App\Service\PaletteService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -76,9 +77,12 @@ class PaletteController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  Palette  $palette
+     * @return Response|JsonResponse
      */
-    public function destroy(Palette $palette)
+    public function destroy(Palette $palette): Response|JsonResponse
     {
-        //
+        return $this->paletteService->destroy($palette);
     }
 }
