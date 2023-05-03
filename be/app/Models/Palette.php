@@ -23,7 +23,7 @@ class Palette extends Model
 
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(Palette::class, 'palette_likes', 'user_id');
+        return $this->belongsToMany(User::class, 'palette_likes');
     }
 
     public function setPalettesAttribute($value)

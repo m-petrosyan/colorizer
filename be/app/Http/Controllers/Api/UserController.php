@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserCreateRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Http\Resources\User\UserResource;
+use App\Models\User;
 use App\Repositories\UserRepository;
 use App\Service\UserService;
 use Illuminate\Http\Response;
@@ -23,17 +24,14 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the specified resource.
      *
-     * @return void
+     * @param  User  $user
+     * @return UserResource
      */
-    public function index()
+    public function show(User $user): UserResource
     {
-        //
-    }
-
-    public function show()
-    {
+        return new UserResource($user);
     }
 
     /**

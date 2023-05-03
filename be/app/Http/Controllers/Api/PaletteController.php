@@ -9,6 +9,7 @@ use App\Http\Resources\Palette\PaletteResource;
 use App\Models\Palette;
 use App\Service\PaletteService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PaletteController extends Controller
 {
@@ -56,11 +57,13 @@ class PaletteController extends Controller
 
     /**
      * @param  Palette  $palette
-     * @return void
+     * @return Response
      */
-    public function like(Palette $palette): void
+    public function like(Palette $palette): Response
     {
         $this->paletteService->likeToggle($palette);
+
+        return response()->noContent();
     }
 
     /**

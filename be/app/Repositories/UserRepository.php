@@ -10,4 +10,9 @@ class UserRepository
     {
         return auth()->user();
     }
+
+    public static function authUserId(): int|string|null
+    {
+        return auth()->id();
+    }
 }

@@ -15,11 +15,17 @@ class PaletteResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return [
+        $data = [
             'id' => $this->id,
-            'user' => new UserResource($this->user),
             'title' => $this->title,
             'palettes' => $this->palettes,
+            'likes' => $this->likes,
         ];
+
+        if (!request()->routeIs('user.get')) {
+            $data['user'] = new UserResource($this->user);
+        }
+
+        return $data;
     }
 }
