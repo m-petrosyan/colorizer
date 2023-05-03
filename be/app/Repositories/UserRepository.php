@@ -13,6 +13,6 @@ class UserRepository
 
     public static function authUserId(): int|string|null
     {
-        return auth()->id();
+        return request()->user('api')['id'];
     }
 }

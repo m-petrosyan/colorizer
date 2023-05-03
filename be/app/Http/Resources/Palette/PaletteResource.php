@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Palette;
 
 use App\Http\Resources\User\UserResource;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,10 +20,13 @@ class PaletteResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'palettes' => $this->palettes,
-            'likes' => $this->likes,
+            'likes' => $this->likes->count(),
         ];
 
-        if (!request()->routeIs('user.get')) {
+        if ($request->user('api')) {
+            $data['liked'] = $this->likes()->where('user_id', UserRepository::authUserId())->exists();
+        }
+        if (!request()->routeIs('user')) {
             $data['user'] = new UserResource($this->user);
         }
 

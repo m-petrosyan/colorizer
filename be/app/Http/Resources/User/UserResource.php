@@ -15,14 +15,13 @@ class UserResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        dd(request()->route()->getPrefix());
         $data = [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
         ];
 
-        if (!request()->routeIs('].get')) {
+        if (!request()->routeIs('palette.*')) {
             $data['palettes'] = new PaletteCollection($this->palettes);
         }
 
