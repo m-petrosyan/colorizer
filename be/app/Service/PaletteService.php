@@ -3,9 +3,8 @@
 namespace App\Service;
 
 use App\Repositories\UserRepository;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class PaletteService
 {
@@ -29,18 +28,14 @@ class PaletteService
 
     /**
      * @param  object  $palette
-     * @return JsonResponse|Response
+     * @return void
      */
-    public function destroy(object $palette): Response|JsonResponse
+    public function destroy(object $palette): void
     {
-        try {
-            Gate::allows('delete-palette', $palette);
-        
+        if (Gate::allows('palette-owner', $palette)) {
             $palette->delete();
-
-            return response()->noContent();
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'permission denied.'], 403);
+        } else {
+            throw new BadRequestException();
         }
     }
 }

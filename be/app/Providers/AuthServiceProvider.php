@@ -24,8 +24,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('delete-palette', function (User $user, Palette $palette) {
-            return $user->id === $palette->user_id ? true : abort(403);
+        Gate::define('palette-owner', function (User $user, Palette $palette) {
+            return $user->id === $palette->user_id;
         });
     }
 }

@@ -79,10 +79,16 @@ class PaletteController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  Palette  $palette
-     * @return Response|JsonResponse
+     * @return JsonResponse|Response
      */
     public function destroy(Palette $palette): Response|JsonResponse
     {
-        return $this->paletteService->destroy($palette);
+        try {
+            $this->paletteService->destroy($palette);
+
+            return response()->noContent();
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'permission denied.'], 403);
+        }
     }
 }
