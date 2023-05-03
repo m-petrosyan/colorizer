@@ -26,6 +26,7 @@ class PaletteUpdateRequest extends FormRequest
             'title' => ['string'],
             'palettes' => ['array', 'min:1'],
             'palettes.*' => ['regex:/^#([a-f0-9]{6}|[a-f0-9]{3})$/i'],
+            'public' => ['boolean'],
         ];
     }
 }

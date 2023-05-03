@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Palette\PaletteCreateRequest;
+use App\Http\Requests\Palette\PaletteUpdateRequest;
 use App\Http\Resources\Palette\PaletteCollection;
 use App\Http\Resources\Palette\PaletteResource;
 use App\Models\Palette;
 use App\Service\PaletteService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class PaletteController extends Controller
@@ -69,10 +69,20 @@ class PaletteController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  PaletteUpdateRequest  $request
+     * @param  Palette  $palette
+     * @return JsonResponse|Response
      */
-    public function update(Request $request, Palette $palette)
+    public function update(PaletteUpdateRequest $request, Palette $palette): Response|JsonResponse
     {
-        //
+        try {
+            $this->paletteService->update($palette, $request->validated());
+
+            return response()->noContent();
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'permission denied.'], 403);
+        }
     }
 
     /**

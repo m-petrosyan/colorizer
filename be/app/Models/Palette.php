@@ -14,6 +14,7 @@ class Palette extends Model
     protected $fillable = [
         'title',
         'palettes',
+        'public',
     ];
 
     public function user(): BelongsTo

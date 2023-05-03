@@ -17,6 +17,15 @@ class PaletteService
         return UserRepository::authUser()->palettes()->create($attributes);
     }
 
+    public function update(object $palette, array $attributes): mixed
+    {
+        if (Gate::allows('palette-owner', $palette)) {
+            return $palette->update($attributes);
+        } else {
+            throw new BadRequestException();
+        }
+    }
+
     /**
      * @param  object  $palette
      * @return void

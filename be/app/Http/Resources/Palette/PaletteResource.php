@@ -21,6 +21,7 @@ class PaletteResource extends JsonResource
             'title' => $this->title,
             'palettes' => $this->palettes,
             'likes' => $this->likes->count(),
+            'public' => $this->public,
         ];
 
         if ($request->user('api')) {
