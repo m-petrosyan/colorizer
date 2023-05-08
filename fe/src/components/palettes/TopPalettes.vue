@@ -11,7 +11,7 @@
             <p class="text bold" :style="{color: setTextColorByBgColor(color)}">{{ color }}</p>
           </div>
         </div>
-        <p>likes {{ item.likes }}</p>
+        <LikeIcon :liked="item.liked" :likes="item.likes"/>
       </div>
     </div>
   </section>
@@ -19,9 +19,11 @@
 
 <script>
 import MainMixin from "@/mixins/MainMixin";
+import LikeIcon from "@/components/icons/LikeIcon.vue";
 
 export default {
   name: "TopPalettes",
+  components: {LikeIcon},
   mixins: [MainMixin],
   data() {
     return {

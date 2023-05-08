@@ -24,9 +24,10 @@ class PaletteResource extends JsonResource
             'public' => $this->public,
         ];
 
-        if ($request->user('api')) {
-            $data['liked'] = $this->likes()->where('user_id', UserRepository::authUserId())->exists();
-        }
+        $data['liked'] = $request->user('api')
+            ? $this->likes()->where('user_id', UserRepository::authUserId())->exists()
+            : null;
+
         if (!request()->routeIs('user')) {
             $data['user'] = new UserResource($this->user);
         }
