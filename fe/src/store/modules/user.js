@@ -1,19 +1,41 @@
-import {postRequest} from "@/store/api";
+import {getRequest, postRequest, putRequest} from "@/store/api";
 
 export default {
     state: {},
     getters: {},
     mutations: {},
     actions: {
-        signIn({commit}) {
-            return postRequest('https://oauth2.googleapis.com/token', {
-                code: 'https://accounts.google.com/o/oauth2/token',
-                client_id: '79912145008-rdltp746o1vdt3ouik0iaj3t83jdch22.apps.googleusercontent.com',
-                client_secret: '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',
-                redirect_uri: 'http://127.0.0.1:8000/api/google',
-                grant_type: 'authorization_code',
+        signIn({commit}, data) {
+            return postRequest('/oauth/token', {
+                username: data.username,
+                password: data.password,
+                grant_type: 'password',
+                client_id: import.meta.env.VITE_APP_CLIENT_ID,
+                client_secret: import.meta.env.VITE_APP_CLIENT_SECRET
             })
                 .then(response => commit("setToken", response.access_token))
+                .catch(error => Promise.reject(error));
+        },
+        auth({commit}) {
+            return getRequest('/auth', '')
+                .then(response => commit("setAuth", response.data))
+                .catch(error => {
+                    sessionStorage.removeItem('token')
+                    return Promise.reject(error)
+                })
+        },
+        getUser({commit}, id) {
+            return getRequest(`/user/${id}`, '')
+                .then(response => commit("setUser", response.data))
+                .catch(error => Promise.reject(error));
+        },
+        getUsers({commit}, data) {
+            return getRequest('/user', data)
+                .then(response => commit("setUsers", response))
+                .catch(error => Promise.reject(error));
+        },
+        updateUser({commit}, data) {
+            return putRequest(`/user`, data, commit)
                 .catch(error => Promise.reject(error));
         },
     },

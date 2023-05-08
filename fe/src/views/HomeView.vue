@@ -3,32 +3,35 @@
     <div class="content">
       <div class="main-info">
         <div class="info">
-          <h1 class="homepage-title">
+          <h1 class="extra-title">
             The super fast color palettes generator!
           </h1>
-          <p class="text">
+          <p class="text grey">
             Create the perfect palette or get inspired by thousands of beautiful color schemes.
           </p>
           <div class="btn-content">
             <router-link :to="{name:'generate'}" class="btn blue">
               Start the generator
             </router-link>
-            <!--            <router-link :to="{name: 'explore'}" class="btn white">-->
-            <!--              Explore trending palettes-->
-            <!--            </router-link>-->
+            <router-link :to="{name: 'explore'}" class="btn white">
+              Explore trending palettes
+            </router-link>
           </div>
         </div>
       </div>
-      <div class="img-visualization">
-        <div class="img"></div>
-      </div>
+      <LogoIcon/>
     </div>
+    <TopPalettes/>
   </section>
 </template>
 
 <script>
+import TopPalettes from "@/components/palettes/TopPalettes.vue";
+import LogoIcon from "@/components/icons/LogoIcon.vue";
+
 export default {
   name: "HomeView",
+  components: {LogoIcon, TopPalettes},
 }
 </script>
 
@@ -36,57 +39,23 @@ export default {
 .main-page {
   .content {
     display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
 
     & > div {
       width: 50%;
 
       &.main-info {
         .info {
-          width: 75%;
           text-align: center;
 
-          .homepage-title {
-            font-size: 70px;
-            font-weight: 700;
-            line-height: 70px;
-          }
-
           .btn-content {
-            margin: auto;
+            margin: 50px auto auto auto;
             max-width: 60%;
             display: flex;
             flex-direction: column;
             gap: 15px;
-          }
-        }
-      }
-
-      &.img-visualization {
-        .img {
-          width: 400px;
-          height: 400px;
-          margin: auto;
-          border: 2px solid #e1e1e1;
-          border-radius: 100%;
-          background-image: url("@/assets/visualization.png");
-          animation: spin 30s linear infinite;
-        }
-
-        @-webkit-keyframes spin {
-          0% {
-            background-size: 35%;
-            background-position: 0 0;
-          }
-          33% {
-            background-size: 200%;
-            background-position: 100% 0;
-          }
-          66% {
-            background-position: 100% 100%;
-          }
-          80% {
-            background-size: 100%;
-            background-position: 0 100%;
           }
         }
       }

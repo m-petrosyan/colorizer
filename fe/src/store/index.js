@@ -1,5 +1,6 @@
 import {createStore} from 'vuex'
 import user from "@/store/modules/user";
+import palette from "@/store/modules/palette";
 
 
 export default createStore({
@@ -13,5 +14,6 @@ export default createStore({
     actions: {},
     modules: {
         user,
+        palette
     }
 })

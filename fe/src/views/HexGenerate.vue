@@ -31,7 +31,7 @@
       </button>
     </div>
     <div class="item" v-for="(item,index) in items" :key="item.color" :style="{backgroundColor: item.color}">
-      <button class="title">{{ item.color }}</button>
+      <button class="title bold" :style="{color: setTextColorByBgColor(item.color)}">{{ item.color }}</button>
       <div class="color-actions">
         <button class="hidden" :disabled="item.locked" @click="changeColor(item,index)">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -76,9 +76,11 @@
 <script>
 
 import GenerateFooterTools from "@/components/elements/GenerateFooterTools.vue";
+import MainMixin from "@/mixins/MainMixin";
 
 export default {
   name: "HexGenerate",
+  mixins: [MainMixin],
   components: {GenerateFooterTools},
   data() {
     return {

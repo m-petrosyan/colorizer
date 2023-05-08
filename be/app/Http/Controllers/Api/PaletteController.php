@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Palette\PaletteCreateRequest;
 use App\Http\Requests\Palette\PaletteUpdateRequest;
+use App\Http\Requests\Palette\PalleteListRequest;
 use App\Http\Resources\Palette\PaletteCollection;
 use App\Http\Resources\Palette\PaletteResource;
 use App\Models\Palette;
@@ -27,12 +28,19 @@ class PaletteController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  PalleteListRequest  $request
      * @return PaletteCollection
      */
-    public function index(): PaletteCollection
+    public function index(PalleteListRequest $request): PaletteCollection
     {
-        return new PaletteCollection(Palette::get());
+        return new PaletteCollection(
+            Palette::with('likes', 'user')
+                ->withCount('likes')
+                ->orderBy('likes_count', 'desc')
+                ->paginate($request->validated()['limit'] ?? 20)
+        );
     }
+//->sortByDesc('rated.rating')
 
     /**
      * Store a newly created resource in storage.

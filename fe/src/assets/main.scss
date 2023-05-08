@@ -16,6 +16,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 50px;
 
   section {
     &.resize {
@@ -23,10 +24,29 @@ body {
       margin: 50px auto auto auto;
     }
 
+    .extra-title {
+      font-size: var(--text-bigger);
+      font-weight: 700;
+      line-height: 70px;
+      margin-bottom: 20px;
+    }
+
+    .page-title {
+      margin: 100px auto 50px auto;
+      text-align: center;
+    }
+
     .text {
-      margin-top: 25px;
-      margin-bottom: 25px;
+      font-weight: 500;
       font-size: var(--text-normal);
+    }
+
+    .grey {
+      color: var(--grey);
+    }
+
+    .bold {
+      font-weight: bold;
     }
   }
 
