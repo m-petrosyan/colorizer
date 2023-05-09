@@ -16,12 +16,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/vars.scss";
+
 svg {
   margin: auto;
   height: 325px;
   stroke: #ef4444;
   fill: transparent;
   stroke-width: 30px;
+  @media (width <= $l) {
+    display: none;
+  }
 
   g {
     animation: spin 10s linear infinite;

@@ -4,50 +4,86 @@
       <h1 class="extra-title">Trending Color Palettes</h1>
       <p class="text grey">Get inspired by thousands of beautiful color schemes and make something cool!</p>
     </div>
-    <div class="wrapper">
+    <div class="filters" v-if="filters">
+      <p>Palettes per page </p>
+      <select v-model="limit">
+        <option v-for="item in limits" :value="item" :key="item">{{ item }}</option>
+      </select>
+    </div>
+    <div class="wrapper" v-if="palettes">
       <div class="palette" v-for="item in palettes" :key="item.id">
         <div class="colors">
           <div class="color" v-for="color in item.palettes" :key="color" :style="{backgroundColor: color}">
             <p class="text bold" :style="{color: setTextColorByBgColor(color)}">{{ color }}</p>
           </div>
         </div>
-        <LikeIcon :liked="item.liked" :likes="item.likes"/>
+        <LikeIPallete :liked="item.liked" :likes="item.likes"/>
       </div>
     </div>
+    <PreloaderComponent v-else/>
   </section>
 </template>
 
 <script>
 import MainMixin from "@/mixins/MainMixin";
-import LikeIcon from "@/components/icons/LikeIcon.vue";
+import LikeIPallete from "@/components/elements/LikeIPallete.vue";
+import PreloaderComponent from "@/components/preloader/PreloaderComponent.vue";
 
 export default {
   name: "TopPalettes",
-  components: {LikeIcon},
+  components: {PreloaderComponent, LikeIPallete},
   mixins: [MainMixin],
+  props: {
+    filters: Boolean,
+    count: {
+      type: Number,
+      default: 6
+    }
+  },
   data() {
     return {
-      limit: 6
+      limit: this.count,
+      limits: [6, 12, 24, 48]
     }
   },
   mounted() {
-    this.$store.dispatch('getPalletes', this.limit)
+    this.getPallets()
+  },
+  methods: {
+    getPallets() {
+      this.$store.dispatch('getPalletes', this.limit)
+    }
   },
   computed: {
     palettes() {
       return this.$store.getters.getPalletes
+    }
+  },
+  watch: {
+    limit() {
+      this.getPallets()
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/vars.scss";
+
 section {
   .wrapper {
     margin-top: 100px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 60px;
+
+    @media (width <= $l) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (width <= $s) {
+      grid-template-columns: 1fr;
+    }
 
     .palette {
 
@@ -79,6 +115,16 @@ section {
           }
         }
       }
+    }
+  }
+
+  .filters {
+    display: flex;
+    gap: 0 20px;
+    justify-content: flex-end;
+
+    @media (width <= $s) {
+      display: none;
     }
   }
 }

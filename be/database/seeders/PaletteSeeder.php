@@ -13,7 +13,7 @@ class PaletteSeeder extends Seeder
      */
     public function run(): void
     {
-        Palette::factory(15)->create()->each(function ($item) {
+        Palette::factory(20)->create()->each(function ($item) {
             $likes = rand(0, 10);
 
             for ($i = 0; $i < $likes; $i++) {
@@ -74,7 +74,7 @@ class PaletteSeeder extends Seeder
                 '#43aa8b',
                 '#4d908e',
                 '#577590',
-                '#277da1'
+                '#277da1',
             ],
         ];
 

@@ -28,23 +28,32 @@
 <script>
 import TopPalettes from "@/components/palettes/TopPalettes.vue";
 import LogoIcon from "@/components/icons/LogoIcon.vue";
+import PreloaderComponent from "@/components/preloader/PreloaderComponent.vue";
 
 export default {
   name: "HomeView",
-  components: {LogoIcon, TopPalettes},
+  components: {PreloaderComponent, LogoIcon, TopPalettes},
 }
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/vars.scss";
+
 .main-page {
   .content {
     display: flex;
     justify-content: center;
     width: 80%;
     margin: auto;
+    @media (width <= $l) {
+      width: 100%;
+    }
 
     & > div {
       width: 50%;
+      @media (width <= $l) {
+        width: 100%;
+      }
 
       &.main-info {
         .info {
@@ -52,10 +61,13 @@ export default {
 
           .btn-content {
             margin: 50px auto auto auto;
-            max-width: 60%;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             gap: 15px;
+            @media (width <= $s) {
+              max-width: unset;
+            }
           }
         }
       }
