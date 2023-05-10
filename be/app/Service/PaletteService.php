@@ -14,7 +14,9 @@ class PaletteService
      */
     public function store(array $attributes): mixed
     {
-        return UserRepository::authUser()->palettes()->create($attributes);
+        dd(UserRepository::authUser()->palettes()->create($attributes)->fresh()->load('likes'));
+
+        return UserRepository::authUser()->palettes()->create($attributes)->fresh()->load('likes');
     }
 
     public function update(object $palette, array $attributes): mixed

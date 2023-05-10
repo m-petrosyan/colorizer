@@ -9,6 +9,7 @@ use App\Http\Requests\Palette\PalleteListRequest;
 use App\Http\Resources\Palette\PaletteCollection;
 use App\Http\Resources\Palette\PaletteResource;
 use App\Models\Palette;
+use App\Repositories\UserRepository;
 use App\Service\PaletteService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -40,7 +41,16 @@ class PaletteController extends Controller
                 ->paginate($request->validated()['limit'] ?? 20)
         );
     }
-//->sortByDesc('rated.rating')
+
+    /**
+     * @return PaletteCollection
+     */
+    public function likes()
+    {
+        dd(1);
+
+        return new PaletteCollection(UserRepository::authUser()->likes);
+    }
 
     /**
      * Store a newly created resource in storage.

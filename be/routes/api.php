@@ -25,7 +25,13 @@ Route::middleware(['auth:api', 'verified'])->group(function () {
         Route::put('/', 'update');
         Route::delete('/', 'destroy');
     });
-
-    Route::resource('palette', PaletteController::class)->only('store', 'update', 'destroy');
-    Route::patch('palette/{palette}/like', [PaletteController::class, 'like']);
+    Route::get('palette/likes', function () {
+        dd(333);
+    });
+    Route::prefix('palette')->controller(PaletteController::class)->group(function () {
+        Route::post('/', 'store')->name('palette');
+        Route::put('/', 'update');
+        Route::delete('/', 'destroy');
+        Route::patch('/{palette}/like', 'like');
+    });
 });
