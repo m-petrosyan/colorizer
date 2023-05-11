@@ -21,7 +21,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
         ];
 
-        if (!request()->routeIs('palette.*')) {
+        if (!request()->routeIs('palette', 'palette.*')) {
             $data['palettes'] = new PaletteCollection($this->palettes);
         }
 

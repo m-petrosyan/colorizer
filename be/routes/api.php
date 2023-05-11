@@ -15,23 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('user', [UserController::class, 'store']);
-Route::resource('palette', PaletteController::class)->only('index', 'show');
-
 Route::middleware(['auth:api', 'verified'])->group(function () {
     Route::name('user')->prefix('user')->controller(UserController::class)->group(function () {
-        Route::get('/auth', 'auth');
-        Route::get('/{user}', 'show');
+        Route::get('auth', 'auth');
+        Route::get('{user}', 'show');
         Route::put('/', 'update');
         Route::delete('/', 'destroy');
     });
-    Route::get('palette/likes', function () {
-        dd(333);
-    });
-    Route::prefix('palette')->controller(PaletteController::class)->group(function () {
-        Route::post('/', 'store')->name('palette');
-        Route::put('/', 'update');
-        Route::delete('/', 'destroy');
-        Route::patch('/{palette}/like', 'like');
+
+    Route::name('palette')->prefix('palette')->controller(PaletteController::class)->group(function () {
+        Route::post('/', 'store');
+        Route::put('{palette}', 'update');
+        Route::delete('{palette}', 'destroy');
+        Route::patch('{palette}/like', 'like');
+        Route::get('likes', 'likes');
     });
 });
+
+Route::post('user', [UserController::class, 'store']);
+Route::resource('palette', PaletteController::class)->only('index', 'show');
