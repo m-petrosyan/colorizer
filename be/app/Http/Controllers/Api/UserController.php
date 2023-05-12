@@ -48,7 +48,7 @@ class UserController extends Controller
 
     public function auth(): UserResource
     {
-        return new UserResource(UserRepository::authUser());
+        return new UserResource(UserRepository::authUser()->load('palettes'));
     }
 
     /**

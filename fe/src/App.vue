@@ -6,9 +6,6 @@
 import TopNavbar from "@/components/nav/TopNavbar.vue";
 
 export default {
-  mounted() {
-
-  },
   components: {TopNavbar}
 }
 </script>

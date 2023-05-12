@@ -22,7 +22,7 @@ class UserResource extends JsonResource
         ];
 
         if (!request()->routeIs('palette', 'palette.*')) {
-            $data['palettes'] = new PaletteCollection($this->palettes);
+            $data['palettes'] = new PaletteCollection($this->palettes->load('likes'));
         }
 
         return $data;

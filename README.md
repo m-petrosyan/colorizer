@@ -29,7 +29,7 @@ php artisan serve
 
 ```
 yarn 
-yarn vite
+yarn dev
 ```
 
 
