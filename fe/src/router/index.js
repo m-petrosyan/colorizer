@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import HexGenerate from "@/views/HexGenerate.vue";
-import ExploreHex from "@/views/ExploreHex.vue";
+import HomeView from '../views/home/HomeView.vue'
+import HexGenerate from "@/views/hex/HexGenerate.vue";
+import ExploreHex from "@/views/hex/ExploreHex.vue";
 
 const router = createRouter({
     history: createWebHistory(),

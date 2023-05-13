@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/vars.scss";
+@import "@/assets/style/vars.scss";
 
 svg {
   margin: auto;

@@ -171,7 +171,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-@import "@/assets/vars.scss";
+@import "@/assets/style/vars.scss";
 
 .generate-area {
   height: calc(100vh - var(--navbar-height));

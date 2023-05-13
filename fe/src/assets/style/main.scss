@@ -25,30 +25,6 @@ body {
         padding: 0 50px;
       }
     }
-
-    .extra-title {
-      font-size: var(--text-bigger);
-      font-weight: 700;
-      line-height: 70px;
-      margin-bottom: 20px;
-    }
-
-    .page-title {
-      text-align: center;
-    }
-
-    .text {
-      font-weight: 500;
-      font-size: var(--text-normal);
-    }
-
-    .grey {
-      color: var(--grey);
-    }
-
-    .bold {
-      font-weight: bold;
-    }
   }
 
   a {
@@ -91,4 +67,34 @@ body {
       }
     }
   }
+}
+
+.extra-title {
+  font-size: var(--text-bigger);
+  font-weight: 900;
+  line-height: 70px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: var(--text-big);
+  font-weight: 900;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text {
+  font-weight: 500;
+  font-size: var(--text-normal);
+  color: var(--grey);
+}
+
+.grey {
+  color: var(--grey);
+}
+
+.bold {
+  font-weight: bold;
 }

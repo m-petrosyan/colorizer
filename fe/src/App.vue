@@ -1,12 +1,17 @@
 <template>
-  <TopNavbar/>
+  <TopNavbar v-model:authPopup="authPopup"/>
   <router-view/>
 </template>
 <script>
 import TopNavbar from "@/components/nav/TopNavbar.vue";
 
 export default {
-  components: {TopNavbar}
+  components: {TopNavbar},
+  data() {
+    return {
+      authPopup: ''
+    }
+  },
 }
 </script>
 

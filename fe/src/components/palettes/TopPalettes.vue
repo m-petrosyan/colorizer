@@ -1,6 +1,6 @@
 <template>
   <section class="resize">
-    <div class="page-title">
+    <div class="text-center">
       <h1 class="extra-title">Trending Color Palettes</h1>
       <p class="text grey">Get inspired by thousands of beautiful color schemes and make something cool!</p>
     </div>
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/vars.scss";
+@import "@/assets/style/vars.scss";
 
 section {
   .wrapper {
