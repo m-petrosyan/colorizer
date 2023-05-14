@@ -1,5 +1,5 @@
 <template>
-  <nav class="top-nav">
+  <nav class="top-nav bg-navbar">
     <router-link to="/">
       <img class="logo" src="@/assets/logo.svg" alt="logo">
     </router-link>
@@ -51,8 +51,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #00BAF0;
-  background: var(--navbar-bg);
+  //background-color: var(--bg-navbar);
   height: var(--navbar-height);
   padding: 1em;
   font-weight: 500;

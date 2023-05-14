@@ -12,7 +12,7 @@ Create the perfect palette
 
 ### Postman documentation
 
-[view](https://documenter.getpostman.com/view/12599375/2s93CKQErt/)
+[view](https://documenter.getpostman.com/view/12599375/2s93ecxWWg)
 
 # installation
 

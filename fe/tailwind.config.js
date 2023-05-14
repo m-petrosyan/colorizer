@@ -1,11 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
     content: [
         "./index.html",
         "./src/**/*.{vue,js,ts,jsx,tsx}",
     ],
     theme: {
         extend: {},
+        colors: {
+            'bg-navbar': 'rgb(239, 230, 238)',
+            'navbar-color': '#607d8b',
+            'grey': '#7d7c83',
+            'btn-hover-color': 'rgba(0, 0, 0, 0.11)',
+            'btn-active-color': 'rgba(61, 61, 61, 0.11)',
+        },
         screens: {
             'sm': '580px',
             // => @media (min-width: 580px) { ... }
@@ -16,18 +23,7 @@ export default {
             'xl': '1280px',
             // => @media (min-width: 1280px) { ... }
         },
-        colors: {
-            transparent: 'transparent',
-            current: 'currentColor',
-            'white': '#ffffff',
-            'purple': '#3f3cbb',
-            'midnight': '#121063',
-            'metal': '#565584',
-            'tahiti': '#3ab7bf',
-            'silver': '#ecebff',
-            'bubble-gum': '#ff77e9',
-            'bermuda': '#78dcca',
-        },
+
     },
     plugins: [],
 }
