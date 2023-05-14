@@ -5,10 +5,23 @@ module.exports = {
         "./src/**/*.{vue,js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            spacing: {
+                'navbar': '50px',
+                'full-content': `calc(100vh - 50px)`,
+            },
+        },
+        fontSize: {
+            'extra-big': '70px',
+            'bigger': '50px',
+            'big': '28px',
+            'normal': '20px',
+            'small': '18px'
+        },
         colors: {
-            'bg-navbar': 'rgb(239, 230, 238)',
-            'navbar-color': '#607d8b',
+            'orange': '#ff5722',
+            'milky-white': 'rgb(239, 230, 238)',
+            'grey-blue': '#607d8b',
             'grey': '#7d7c83',
             'btn-hover-color': 'rgba(0, 0, 0, 0.11)',
             'btn-active-color': 'rgba(61, 61, 61, 0.11)',

@@ -1,11 +1,11 @@
 <template>
-  <nav class="top-nav bg-navbar">
+  <nav class="top-nav flex-row flex bg-milky-white justify-between items-center text-grey-blue h-navbar px-6">
     <router-link to="/">
       <img class="logo" src="@/assets/logo.svg" alt="logo">
     </router-link>
     <input id="menu-toggle" type="checkbox"/>
     <label class='menu-button-container' for="menu-toggle">
-      <span class='menu-button'></span>
+      <span class='menu-button bg-grey-blue"'></span>
     </label>
     <ul class="menu">
       <li>One</li>
@@ -13,7 +13,7 @@
       <li>Three</li>
       <li>Four</li>
       <li>
-        <button @click="popup('auth')">
+        <button @click="!user ? popup('auth') : logout()" :class="{'rotate-180 text-orange': user}">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                stroke="currentColor"
                class="w-6 h-6">
@@ -24,7 +24,7 @@
       </li>
     </ul>
   </nav>
-  <AuthLayout v-if="authPopup"/>
+  <AuthLayout v-if="authPopup" v-model:popup="popup"/>
 </template>
 
 <script>
@@ -36,9 +36,18 @@ export default {
   props: {
     authPopup: String
   },
+  computed: {
+    user() {
+      return this.$store.getters.getAuth
+    }
+  },
   methods: {
     popup(val) {
       this.$emit('update:authPopup', val)
+    },
+    logout() {
+      sessionStorage.clear();
+      this.$router.push({name: 'home'}).then(() => this.$router.go(0))
     }
   }
 }
@@ -47,16 +56,7 @@ export default {
 <style scoped lang="scss">
 
 .top-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  //background-color: var(--bg-navbar);
-  height: var(--navbar-height);
-  padding: 1em;
-  font-weight: 500;
   font-size: 18px;
-  color: var(--navbar-color);
 
   .logo {
     height: 30px;
@@ -76,7 +76,7 @@ export default {
       &, &::before,
       &::after {
         display: block;
-        background-color: var(--navbar-color);
+        background-color: var(navbar-color);
         position: absolute;
         height: 4px;
         width: 30px;

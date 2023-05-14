@@ -1,5 +1,5 @@
 <template>
-  <section class="generate-area">
+  <section class="generate-area flex h-full-content">
     <div class="actions top">
       <button class="favorite">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -31,9 +31,12 @@
       </button>
     </div>
     <div class="item" v-for="(item,index) in items" :key="item.color" :style="{backgroundColor: item.color}">
-      <button class="title bold" :style="{color: setTextColorByBgColor(item.color)}">{{ item.color }}</button>
+      <button class="title text-normal bold" :style="{color: setTextColorByBgColor(item.color)}">{{
+          item.color
+        }}
+      </button>
       <div class="color-actions">
-        <button class="hidden" :disabled="item.locked" @click="changeColor(item,index)">
+        <button class="hide" :disabled="item.locked" @click="changeColor(item,index)">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                stroke="currentColor"
                class="w-6 h-6">
@@ -41,13 +44,13 @@
                   d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/>
           </svg>
         </button>
-        <button class="hidden" @click="removeColor(index)">
+        <button class="hide" @click="removeColor(index)">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
-        <button class="hidden" @click="copyColor(item.color)">
+        <button class="hide" @click="copyColor(item.color)">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -174,8 +177,6 @@ export default {
 @import "@/assets/style/vars.scss";
 
 .generate-area {
-  height: calc(100vh - var(--navbar-height));
-  display: flex;
 
   @media (width <= $l) {
     flex-direction: column;
@@ -212,7 +213,7 @@ export default {
             }
 
             &.active {
-              visibility: hidden;
+              visibility: hide;
               opacity: 0;
               width: 0;
             }
@@ -226,7 +227,7 @@ export default {
           &.inactive {
             width: 0;
             opacity: 0;
-            visibility: hidden;
+            visibility: hide;
           }
         }
       }
@@ -260,6 +261,7 @@ export default {
         }
 
         svg {
+          width: 35px;
           transform: rotate(0deg);
         }
       }
@@ -278,7 +280,7 @@ export default {
     &:hover {
       .color-actions {
         button {
-          &.hidden {
+          &.hide {
             opacity: 1;
             visibility: visible;
           }
@@ -290,7 +292,7 @@ export default {
       &:hover {
         .color-actions {
           button {
-            &.hidden {
+            &.hide {
               margin-bottom: 15px;
             }
           }
@@ -302,10 +304,10 @@ export default {
       flex-direction: row;
     }
 
-    .title {
-      color: white;
-      font-size: 22px;
-    }
+    //.title {
+    //  color: white;
+    //  font-size: 22px;
+    //}
 
     .color-actions {
       display: flex;
@@ -321,8 +323,8 @@ export default {
         padding: 10px 12px;
         border-radius: 10px;
 
-        &.hidden {
-          visibility: hidden;
+        &.hide {
+          visibility: hide;
           opacity: 0;
           @media (width <= $s) {
             visibility: visible;
@@ -332,6 +334,7 @@ export default {
 
         svg {
           height: 30px;
+          width: 30px;
           color: white;
         }
 

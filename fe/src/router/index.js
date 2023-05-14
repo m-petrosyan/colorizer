@@ -2,6 +2,8 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/home/HomeView.vue'
 import HexGenerate from "@/views/hex/HexGenerate.vue";
 import ExploreHex from "@/views/hex/ExploreHex.vue";
+import DashboardLayout from "@/components/layouts/DashboardLayout.vue";
+import DashboardPalettes from "@/views/dashboard/DashboardPalettes.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,7 +22,18 @@ const router = createRouter({
             path: '/explore',
             name: 'explore',
             component: ExploreHex,
-        }
+        },
+        {
+            path: '/dashboard',
+            component: DashboardLayout,
+            children: [
+                {
+                    path: 'palettes',
+                    name: 'db-palettes',
+                    component: DashboardPalettes
+                },
+            ]
+        },
     ]
 })
 

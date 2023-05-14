@@ -1,9 +1,30 @@
 import {getRequest, postRequest, putRequest} from "@/store/api";
 
 export default {
-    state: {},
-    getters: {},
-    mutations: {},
+    state: {
+        auth: null,
+        user: null,
+        userError: null,
+    },
+    getters: {
+        getUser: state => state.user,
+        getAuth: state => state.auth,
+        getUserError: state => state.userError,
+    },
+    mutations: {
+        setToken(state, data) {
+            sessionStorage.setItem('token', data)
+        },
+        setUserError(state, data) {
+            state.userError = data
+        },
+        setAuth(state, data) {
+            state.auth = data
+        },
+        setUser(state, data) {
+            state.user = data
+        },
+    },
     actions: {
         signIn({commit}, data) {
             return postRequest('/oauth/token', {
@@ -17,7 +38,7 @@ export default {
                 .catch(error => Promise.reject(error));
         },
         auth({commit}) {
-            return getRequest('/auth', '')
+            return getRequest('/user/auth', '')
                 .then(response => commit("setAuth", response.data))
                 .catch(error => {
                     sessionStorage.removeItem('token')

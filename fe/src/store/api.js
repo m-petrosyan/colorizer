@@ -11,7 +11,7 @@ const getRequest = async (url, data) => {
 const postRequest = async (url, data) => {
     let headers = await getHeader();
     return axios
-        .post(url, data, headers)
+        .post(import.meta.env.VITE_APP_API + url, data, headers)
         .then(response => response.data)
         .catch(error => Promise.reject(error.response.data));
 };

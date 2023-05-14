@@ -2,7 +2,10 @@
   <Teleport to="body">
     <div class="modal">
       <div class="modal-content">
-        <SignIn/>
+        <button @click="popup('')">
+          x
+        </button>
+        <SignIn :close="()=>popup('')"/>
       </div>
     </div>
   </Teleport>
@@ -13,8 +16,10 @@ import SignIn from "@/components/auth/SignIn.vue";
 
 export default {
   name: "AuthLayout",
+  props: {
+    popup: Function
+  },
   components: {SignIn},
-
 }
 </script>
 

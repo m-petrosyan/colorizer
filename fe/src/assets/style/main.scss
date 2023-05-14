@@ -12,7 +12,7 @@
 body {
   min-height: 100vh;
   font-family: var(--main-font), sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,10 +76,10 @@ body {
   margin-bottom: 20px;
 }
 
-.title {
-  font-size: var(--text-big);
-  font-weight: 900;
-}
+//.title {
+//  font-size: var(--text-big);
+//  font-weight: 900;
+//}
 
 .text-center {
   text-align: center;
