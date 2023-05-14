@@ -1,7 +1,7 @@
 <template>
   <nav class="top-nav">
     <router-link to="/">
-      <img src="@/assets/logo.svg" height="30" alt="">
+      <img class="logo" src="@/assets/logo.svg" alt="logo">
     </router-link>
     <input id="menu-toggle" type="checkbox"/>
     <label class='menu-button-container' for="menu-toggle">
@@ -58,6 +58,10 @@ export default {
   font-weight: 500;
   font-size: 18px;
   color: var(--navbar-color);
+
+  .logo {
+    height: 30px;
+  }
 
   .menu-button-container {
     display: none;
