@@ -23,8 +23,8 @@ module.exports = {
             'milky-white': 'rgb(239, 230, 238)',
             'grey-blue': '#607d8b',
             'grey': '#7d7c83',
-            'btn-hover-color': 'rgba(0, 0, 0, 0.11)',
-            'btn-active-color': 'rgba(61, 61, 61, 0.11)',
+            'dark': 'rgba(0, 0, 0, 0.11)',
+            'dark-grey': 'rgba(61, 61, 61, 0.11)',
         },
         screens: {
             'sm': '580px',

@@ -43,7 +43,9 @@ export default {
   },
   methods: {
     submit() {
-      this.$store.dispatch('signIn', this.form).then(() => this.close())
+      this.$store.dispatch('signIn', this.form).then(() => {
+        this.$store.dispatch('auth').then(() => this.close())
+      })
     }
   }
 }

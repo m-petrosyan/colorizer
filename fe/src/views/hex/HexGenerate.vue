@@ -185,7 +185,7 @@ export default {
   .actions {
     position: fixed;
     padding: 10px;
-    background-color: var(--btn-hover-color);
+    background-color: var(-dark);
     border-radius: 10px;
     display: flex;
     gap: 0 25px;
@@ -339,10 +339,10 @@ export default {
         }
 
         &:hover {
-          background-color: var(--btn-hover-color);
+          background-color: var(--dark);
 
           &:active {
-            background-color: var(--btn-active-color);
+            background-color: var(--dark-grey);
           }
         }
       }

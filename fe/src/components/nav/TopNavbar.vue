@@ -5,13 +5,19 @@
     </router-link>
     <input id="menu-toggle" type="checkbox"/>
     <label class='menu-button-container' for="menu-toggle">
-      <span class='menu-button bg-grey-blue"'></span>
+      <span class='menu-button bg-grey-blue before:bg-grey-blue  after:bg-grey-blue'></span>
     </label>
     <ul class="menu">
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-      <li>Four</li>
+      <li>
+        <router-link :to="{name:'generate'}">
+          Generate
+        </router-link>
+      </li>
+      <li>
+        <router-link :to="{name: 'explore'}">
+          Explore
+        </router-link>
+      </li>
       <li>
         <button @click="!user ? popup('auth') : logout()" :class="{'rotate-180 text-orange': user}">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -76,7 +82,7 @@ export default {
       &, &::before,
       &::after {
         display: block;
-        background-color: var(navbar-color);
+        //background-color: #607d8b;
         position: absolute;
         height: 4px;
         width: 30px;

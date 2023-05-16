@@ -1,6 +1,6 @@
 <template>
-  <section class="flex">
-    <DashboardNavbar/>
+  <section class="flex gap-x-10 py-5 h-full-content">
+    <DashboardNavbar class="w-fit"/>
     <router-view/>
   </section>
 </template>
