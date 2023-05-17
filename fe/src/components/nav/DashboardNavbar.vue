@@ -1,6 +1,6 @@
 <template>
   <ul class="nav px-5 border-r-[1px] border-milky-white">
-    <li>
+    <li class="whitespace-nowrap">
       <a href="" class="flex gap-x-2 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" width="25" height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round"
@@ -15,7 +15,7 @@
         <p>My Palettes</p>
       </a>
     </li>
-    <li class="mt-5">
+    <li class="mt-5 whitespace-nowrap">
       <a href="" class="flex gap-x-2 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="25" height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round"
@@ -26,7 +26,7 @@
         <p>Liked Palettes</p>
       </a>
     </li>
-    <li class="mt-5">
+    <li class="mt-5 whitespace-nowrap">
       <a href="" class="flex gap-x-2 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="25"
              height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round"
@@ -55,7 +55,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.nav {
-  //border-right: 1px solid gray;
-}
+
 </style>

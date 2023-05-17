@@ -3,7 +3,7 @@ import {getRequest} from "@/store/api";
 export default {
     state: {
         palette: null,
-        palettes: null
+        palettes: null,
     },
     getters: {
         getPallete: state => state.palette,

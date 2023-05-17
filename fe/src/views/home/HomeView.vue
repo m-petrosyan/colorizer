@@ -32,6 +32,9 @@ import PreloaderComponent from "@/components/preloader/PreloaderComponent.vue";
 
 export default {
   name: "HomeView",
+  data() {
+    return {}
+  },
   components: {PreloaderComponent, LogoIcon, TopPalettes},
 }
 </script>

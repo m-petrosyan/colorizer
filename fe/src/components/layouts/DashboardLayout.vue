@@ -1,7 +1,7 @@
 <template>
-  <section class="flex gap-x-10 py-5 h-full-content">
+  <section class="flex py-5 gap-x-2 h-full-content">
     <DashboardNavbar class="w-fit"/>
-    <router-view/>
+    <router-view class="w-full px-5"/>
   </section>
 </template>
 

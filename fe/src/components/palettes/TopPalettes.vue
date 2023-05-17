@@ -10,28 +10,19 @@
         <option v-for="item in limits" :value="item" :key="item">{{ item }}</option>
       </select>
     </div>
-    <div class="wrapper" v-if="palettes">
-      <div class="palette" v-for="item in palettes" :key="item.id">
-        <div class="colors">
-          <div class="color" v-for="color in item.palettes" :key="color" :style="{backgroundColor: color}">
-            <p class="text bold" :style="{color: setTextColorByBgColor(color)}">{{ color }}</p>
-          </div>
-        </div>
-        <LikeIPallete :liked="item.liked" :likes="item.likes"/>
-      </div>
-    </div>
+    <PaletteItems v-if="palettes" :palettes="palettes"/>
     <PreloaderComponent v-else/>
   </section>
 </template>
 
 <script>
 import MainMixin from "@/mixins/MainMixin";
-import LikeIPallete from "@/components/elements/LikeIPallete.vue";
 import PreloaderComponent from "@/components/preloader/PreloaderComponent.vue";
+import PaletteItems from "@/components/palette/PaletteItems.vue";
 
 export default {
   name: "TopPalettes",
-  components: {PreloaderComponent, LikeIPallete},
+  components: {PaletteItems, PreloaderComponent},
   mixins: [MainMixin],
   props: {
     filters: Boolean,
@@ -71,52 +62,6 @@ export default {
 @import "@/assets/style/vars.scss";
 
 section {
-  .wrapper {
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 60px;
-
-    @media (width <= $l) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media (width <= $s) {
-      grid-template-columns: 1fr;
-    }
-
-    .palette {
-
-      .colors {
-        display: flex;
-        height: 130px;
-        border-radius: 10px;
-        overflow: hidden;
-
-        .color {
-          flex-basis: 1px;
-          flex-grow: 1;
-          transition: .3s;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-
-          p {
-            display: none;
-          }
-
-          &:hover {
-            flex-basis: 80px;
-
-            p {
-              display: block;
-            }
-          }
-        }
-      }
-    }
-  }
 
   .filters {
     display: flex;

@@ -18,6 +18,11 @@
           Explore
         </router-link>
       </li>
+      <li v-if="user">
+        <router-link :to="{name: 'db-palettes'}">
+          Dashboard
+        </router-link>
+      </li>
       <li>
         <button @click="!user ? popup('auth') : logout()" :class="{'rotate-180 text-orange': user}">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

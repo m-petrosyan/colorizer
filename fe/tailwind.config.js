@@ -16,7 +16,7 @@ module.exports = {
             'bigger': '50px',
             'big': '28px',
             'normal': '20px',
-            'small': '18px'
+            'small': '16px'
         },
         colors: {
             'orange': '#ff5722',
