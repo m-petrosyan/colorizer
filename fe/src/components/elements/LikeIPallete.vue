@@ -1,6 +1,6 @@
 <template>
   <div class="like-container" :class="{liked:liked}">
-    <div class="like-btn">
+    <div class="like-btn" @click="like(id)">
       <div class="icon">
         <svg v-if="liked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
              class="w-6 h-6">
@@ -23,8 +23,14 @@
 export default {
   name: "LikeIPallete",
   props: {
+    id: Number,
     liked: Boolean,
     likes: Number
+  },
+  methods: {
+    like(id) {
+      this.$store.dispatch('likePallete', id)
+    }
   }
 }
 </script>

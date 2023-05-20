@@ -32,6 +32,16 @@ const putRequest = async (url, body) => {
         .then(response => response.data)
         .catch(error => Promise.reject(error.response.data));
 };
+
+const patchRequest = async (url) => {
+    let headers = await getHeader();
+    return axios
+        .patch(import.meta.env.VITE_APP_API + url, null, headers)
+        .then(response => response.data)
+        .catch(error => Promise.reject(error.response.data));
+};
+
+
 const getHeader = async () => {
     let access_token = sessionStorage.getItem('token')
     return {
@@ -42,4 +52,4 @@ const getHeader = async () => {
     };
 };
 
-export {postRequest, getRequest, putRequest, deleteRequest}
+export {postRequest, getRequest, putRequest, patchRequest, deleteRequest}

@@ -23,12 +23,14 @@ Route::middleware(['auth:api', 'verified'])->group(function () {
         Route::delete('/', 'destroy');
     });
 
+
     Route::name('palette')->prefix('palette')->controller(PaletteController::class)->group(function () {
         Route::post('/', 'store');
         Route::put('{palette}', 'update');
         Route::delete('{palette}', 'destroy');
         Route::patch('{palette}/like', 'like');
         Route::get('likes', 'likes');
+        Route::get('user', 'userPalettes');
     });
 });
 

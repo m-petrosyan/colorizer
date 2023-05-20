@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function palettes(): HasMany
     {
-        return $this->hasMany(Palette::class);
+        return $this->hasMany(Palette::class)->orderBy('id', 'desc');
     }
 
     public function likes(): BelongsToMany

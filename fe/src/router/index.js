@@ -32,6 +32,16 @@ const router = createRouter({
                     name: 'db-palettes',
                     component: DashboardPalettes
                 },
+                {
+                    path: 'palettes',
+                    name: 'db-liked-palettes',
+                    component: DashboardPalettes
+                },
+                {
+                    path: 'palettes',
+                    name: 'db-settings',
+                    component: DashboardPalettes
+                },
             ]
         },
     ]

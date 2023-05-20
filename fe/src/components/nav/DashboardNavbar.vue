@@ -1,7 +1,7 @@
 <template>
-  <ul class="nav px-5 border-r-[1px] border-milky-white">
+  <ul class="nav px-5 border-r-[1px] border-milky-white min-w-[250px]">
     <li class="whitespace-nowrap">
-      <a href="" class="flex gap-x-2 items-center">
+      <router-link :to="{name:'db-palettes'}" class="flex gap-x-2 items-center py-1 px-3">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" width="25" height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round"
              stroke-linejoin="round">
@@ -13,10 +13,10 @@
           <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
         </svg>
         <p>My Palettes</p>
-      </a>
+      </router-link>
     </li>
     <li class="mt-5 whitespace-nowrap">
-      <a href="" class="flex gap-x-2 items-center">
+      <router-link :to="{name:'db-liked-palettes'}" class="flex gap-x-2 items-center py-1 px-3">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="25" height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round"
              stroke-linejoin="round">
@@ -24,10 +24,10 @@
           <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
         </svg>
         <p>Liked Palettes</p>
-      </a>
+      </router-link>
     </li>
     <li class="mt-5 whitespace-nowrap">
-      <a href="" class="flex gap-x-2 items-center">
+      <router-link :to="{name:'db-settings'}" class="flex gap-x-2 items-center  py-1 px-3">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments-horizontal" width="25"
              height="25" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round"
              stroke-linejoin="round">
@@ -43,7 +43,7 @@
           <path d="M19 18l1 0"/>
         </svg>
         <p>Settings</p>
-      </a>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -55,5 +55,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.router-link-exact-active {
+  background-color: #ededed;
+}
 </style>

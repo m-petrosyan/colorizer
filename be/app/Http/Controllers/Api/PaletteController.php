@@ -45,6 +45,14 @@ class PaletteController extends Controller
     /**
      * @return PaletteCollection
      */
+    public function userPalettes(): PaletteCollection
+    {
+        return new PaletteCollection(UserRepository::authUser()->palettes->load('likes', 'user'));
+    }
+
+    /**
+     * @return PaletteCollection
+     */
     public function likes(): PaletteCollection
     {
         return new PaletteCollection(UserRepository::authUser()->likes->load('likes', 'user'));

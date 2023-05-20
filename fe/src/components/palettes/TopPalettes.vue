@@ -10,7 +10,7 @@
         <option v-for="item in limits" :value="item" :key="item">{{ item }}</option>
       </select>
     </div>
-    <PaletteItems v-if="palettes" :palettes="palettes"/>
+    <PaletteItems v-if="palettes" :palettes="palettes" :cols="3"/>
     <PreloaderComponent v-else/>
   </section>
 </template>
@@ -42,12 +42,12 @@ export default {
   },
   methods: {
     getPallets() {
-      this.$store.dispatch('getPalletes', this.limit)
+      this.$store.dispatch('getPalettes', this.limit)
     }
   },
   computed: {
     palettes() {
-      return this.$store.getters.getPalletes
+      return this.$store.getters.getPalettes
     }
   },
   watch: {
